@@ -1,1 +1,1 @@
-Container for all issues of AVefi across all Frontend, Backend and schema-related repos
+Container for all issues that hav not been assigned to one of AVefi Frontend, Backend and schema-related repos
