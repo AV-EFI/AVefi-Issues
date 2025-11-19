@@ -1,0 +1,79 @@
+---
+name: "SEARCH-01: Konsistente Trefferanzahl"
+description: "Stellt sicher, dass die angezeigte Trefferanzahl exakt den dargestellten Ergebnissen entspricht."
+title: "SEARCH-01: Trefferanzahl muss immer mit dargestellten Ergebnissen übereinstimmen"
+labels:
+  - UserStory
+  - Epic:Filmrecherche
+  - Search
+  - MUSTHAVE
+  - Technical-Blocker
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Bitte fülle die folgenden Abschnitte aus falls Anpassungen erforderlich sind. Standard-User-Story unten.
+  - type: textarea
+    id: user-story
+    attributes:
+      label: User Story
+      description: Als Nutzer*in ...
+      value: |
+        Als Nutzer*in der AVefi-Plattform
+        möchte ich, dass die angezeigte Anzahl der Suchtreffer immer mit den tatsächlich dargestellten Ergebnissen übereinstimmt,
+        damit ich das Verhalten von Suche und Facetten nachvollziehen und den Ergebnissen vertrauen kann.
+    validations:
+      required: true
+  - type: textarea
+    id: kontext
+    attributes:
+      label: Kontext
+      value: |
+        - In Usability-Tests wurde mehrfach berichtet, dass die Trefferanzahl nicht zu den angezeigten Ergebnissen passt.
+        - Zentrale Voraussetzung für Vertrauen in die Suche.
+        - REPLACES: ältere Issues zur inkonsistenten Trefferanzahl (z. B. „Anzahl Suchergebnisse passt nicht zu Filteranzahl“).
+  - type: textarea
+    id: akzeptanzkriterien
+    attributes:
+      label: Akzeptanzkriterien
+      value: |
+        1. Given ich habe eine Suchanfrage gestellt
+           When die Ergebnisse geladen und auf der Seite dargestellt sind
+           Then entspricht die angezeigte Trefferanzahl exakt der Anzahl der angezeigten Ergebnisse auf der Seite (inkl. Pagination-Logik).
+        2. Given ich aktiviere oder deaktiviere einen oder mehrere Facetten-Filter
+           When die Trefferliste neu berechnet wird
+           Then wird die Trefferanzahl korrekt neu berechnet und stimmt wiederum mit der dargestellten Liste überein.
+        3. Given es gibt für eine bestimmte Filterkombination keine Treffer
+           When ich diese Filter anwende
+           Then wird die Trefferanzahl mit „0" angezeigt und die Oberfläche zeigt klar an, dass keine Ergebnisse gefunden wurden (z. B. sinnvolle 0-Treffer-Message).
+    validations:
+      required: true
+  - type: textarea
+    id: technische-notizen
+    attributes:
+      label: Technische Notizen / Implementation Hints
+      description: Hinweise zu Datenquellen, Pagination, Cache etc.
+  - type: checkboxes
+    id: quality-gates
+    attributes:
+      label: Qualitäts-Checks
+      options:
+        - label: Pagination-Logik verifiziert (Backend liefert korrekte total count / page size / offset)
+        - label: Facetten-Filter invalidieren Cache korrekt
+        - label: 0-Treffer-Message getestet
+        - label: Performance Tests (Antwortzeit < 1s für Facettenwechsel bei <50k Treffern)
+        - label: Monitoring / Logging für Diskrepanzen implementiert
+  - type: textarea
+    id: test-hinweise
+    attributes:
+      label: Testfälle (optional)
+      description: Zusätzliche Testfälle oder Edge Cases
+  - type: textarea
+    id: links
+    attributes:
+      label: Referenzen / Links
+      description: Relevante frühere Issues, PRs, Dokumentation
+projects:
+  - AV-EFI/1
+---
