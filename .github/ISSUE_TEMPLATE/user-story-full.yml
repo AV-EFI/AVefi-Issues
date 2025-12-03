@@ -2,7 +2,7 @@
 name: "SHORTCODE-XX: SHORT TITLE"
 description: "DESCRIPTION"
 title: "SHORTCODE-XX: TITLE"
-labels:
+labels: []
 assignees: []
 body:
   - type: markdown
@@ -15,6 +15,7 @@ body:
       label: User Story
       description: Als Nutzer*in, Als MA Filminstitut, Als Projektteam, ...
       value: |
+        Bitte fülle die folgenden Abschnitte aus falls Anpassungen erforderlich sind.
     validations:
       required: true
   - type: textarea
@@ -22,11 +23,13 @@ body:
     attributes:
       label: Kontext
       value: |
+        Bitte fülle die folgenden Abschnitte aus falls Anpassungen erforderlich sind.
   - type: textarea
     id: akzeptanzkriterien
     attributes:
       label: Akzeptanzkriterien
       value: |
+        Bitte fülle die folgenden Abschnitte aus falls Anpassungen erforderlich sind.
     validations:
       required: true
   - type: textarea
@@ -38,7 +41,7 @@ body:
     id: quality-gates
     attributes:
       label: Qualitäts-Checks
-      options:
+      options: []
     validations:
       required: false
   - type: textarea
