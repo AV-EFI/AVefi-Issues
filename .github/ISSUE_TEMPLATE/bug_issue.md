@@ -1,6 +1,7 @@
 ---
 name: "BUG: KURZER BUGTITEL"
 description: "Bug Report Template"
+about: "Fehlerbericht ausfüllen"
 title: "BUG: KURZER BUGTITEL"
 labels: ["bug"]
 assignees: []
